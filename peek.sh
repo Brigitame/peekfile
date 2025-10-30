@@ -1,5 +1,13 @@
 #!/bin/bash
 
-head -n 3 "$file"
+file="$1"
+lines="$2"
+
+# Display first N lines
+head -n "$lines" "$file"
+
+# Middle indicator
 echo "..."
-tail -n 3 "$file"
+
+# Display last N lines
+tail -n "$lines" "$file"
