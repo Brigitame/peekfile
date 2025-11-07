@@ -1,13 +1,14 @@
 #!/bin/bash
 
 file="$1"
-lines="$2"
+nlines=${2: -3}"
+total lines=$(wc -l < $file)
 
-# Display first N lines
-head -n "$lines" "$file"
-
-# Middle indicator
-echo "..."
-
-# Display last N lines
-tail -n "$lines" "$file"
+if [[ $total_lines -le $((n_lines *  2)) ]]; then
+cat "$file"
+else
+echo Warning showing only first and last $n_lines lines.
+head -n "$n_lines" "$file"
+echo "......."
+tail -n "$n_lines" "$file"
+fi
